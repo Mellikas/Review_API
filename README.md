@@ -5,10 +5,9 @@ The first Django REST framework project created during the CodeAcademy course.
 **DESCRIPTION**
 
 The website was created to familiarize with:
-- Django framework
-- HTML templates
-- SQLite 
 - Django REST framework 
+- Django framework
+- SQLite
 
 **HOW TO INSTAL AND RUN**
 

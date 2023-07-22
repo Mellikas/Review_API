@@ -28,13 +28,13 @@ The website was created to familiarize with:
     3. Songs
 12. Go to http://localhost:18080/ and add following endpoints:
 - bands/
-- bands/***<insert band ID>***/albums/
-- bands/***<insert band ID>***/albums/***<insert Album ID>***/songs/ 
+- bands/**"insert band ID"**/albums/
+- bands/**"insert band ID"**/albums/**"insert Album ID"**/songs/ 
 - albumreviews/ 
-- albumreviews/***<insert albumreview ID>***/
-- albumreviews/***<insert albumreview ID>***/comments/
-- albumreviews/***<insert albumreview ID>***/comments/***<insert comments ID>***/ 
-- albumreviews/***<insert albumreview ID>***/likes/
+- albumreviews/**"insert albumreview ID"**/
+- albumreviews/**"insert albumreview ID"**/comments/
+- albumreviews/**"insert albumreview ID"**/comments/**"insert comments ID"**/ 
+- albumreviews/**"insert albumreview ID"**/likes/
 
 13. In the corresponding endpoint you can create/view/edit/delete the corresponding content.
 

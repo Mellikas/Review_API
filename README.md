@@ -1,4 +1,4 @@
-# Autoservice
+# Review_API
 
 The first Django REST framework project created during the CodeAcademy course.
 

@@ -6,3 +6,4 @@
 /api_example/db.sqlite3
 /api_example/api_example/__pycache__
 /api_example/postit_api/__pycache__
+/test.py

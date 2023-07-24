@@ -1,9 +1,10 @@
 from rest_framework.exceptions import ValidationError
 from .models import Band, Album, Song, AlbumReview, AlbumReviewComment, AlbumReviewLike
 from .serializers import BandSerializer, AlbumReviewSerializer, AlbumSerializer, SongSerializer, \
-    AlbumReviewCommentSerializer, AlbumReviewLikeSerializer
+    AlbumReviewCommentSerializer, AlbumReviewLikeSerializer, UserSerializer
 from rest_framework import generics, permissions, mixins, status
 from rest_framework.response import Response
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -104,7 +105,7 @@ class AlbumReviewLikeCreat(generics.CreateAPIView, mixins.DestroyModelMixin):
     def get_queryset(self):
         user = self.request.user
         album_review = AlbumReview.objects.get(pk=self.kwargs['pk'])
-        return AlbumReviewLike.objects.filter(album_review_id=album_review , user=user)
+        return AlbumReviewLike.objects.filter(album_review_id=album_review, user=user)
 
     def perform_create(self, serializer):
         if self.get_queryset().exists():
@@ -112,10 +113,23 @@ class AlbumReviewLikeCreat(generics.CreateAPIView, mixins.DestroyModelMixin):
         album_review = AlbumReview.objects.get(pk=self.kwargs['pk'])
         serializer.save(user=self.request.user, album_review_id=album_review)
 
-
     def delete(self, request, *args, **kwargs):
         if self.get_queryset().exists():
             self.get_queryset().delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             raise ValidationError('You have not left a like on this message!')
+
+
+class UserCreate(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (permissions.AllowAny,)
+
+    def delete(self, request, *args, **kwargs):
+        user = User.objects.filter(pk=self.request.user.pk)
+        if user.exists():
+            user.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            raise ValidationError('User doesn\'t exist.')

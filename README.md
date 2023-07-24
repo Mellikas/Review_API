@@ -38,7 +38,7 @@ The website was created to familiarize with:
 - albumreviews/**"insert albumreview ID"**/likes/
 - signup/
 
-13. Through your IDE terminal you can GET or CREAT data:
+13. Through your IDE terminal you can GET or POST data:
     - First you must **get your user TOKEN**:
       - In terminal run: `http POST http://localhost:18080/api-token-auth/ username=admin password=admin`
       - Copy it from terminal and save it.
@@ -46,28 +46,31 @@ The website was created to familiarize with:
       - In terminal run: `http localhost:18080/"insert an endpoint from above"/`
     - **Creat**:
       - New like:
-        - in terminal run: `http POST http://localhost:18080/albumreviews/1/likes/ "Authorization: Token 761fee26e056d4fc065dc4edf7c2b1b9482d6f40"` (insert **your generated** token)
+        - in terminal run: `http POST http://localhost:18080/albumreviews/1/likes/ "Authorization: Token 761fee26e056d4fc065dc4edf7c2b1b9482d6f40"` 
       - New albumreview:
         - in terminal run: `http POST http://localhost:18080/albumreviews/ album_id="3" review_content="NEW review" score="8" "Authorization: Token 9e148e5b5ab42279939212ab77df3d582f2c2283"` 
-      - Comment:
-        - Insert **your generated** token.
-        - Insert existing **album_id** number. 
-        - Create custom **review_content** and **score**.
+      - *Comment*:
+        - *Insert **your generated** token*.
+        - *Insert existing **album_id** number*. 
+        - *Create custom **review_content** and **score***.
 
 14. Your request can be made via python: 
 - `import requests`
-  - **Creat data:**   
-      url = 'http://localhost:18080/albumreviews/'
-      headers = {'Authorization': 'Token 9e148e5b5ab42279939212ab77df3d582f2c2283'}
-      myobj= {'album_id': '1','review_content': 'Naujas, naujas, naujas','score': '5'}
-      r = requests.post(url, headers=headers, json=myobj)
-      print(r.json())
+  - **Post data:**   
+    ```  
+    url = 'http://localhost:18080/albumreviews/'
+    headers = {'Authorization': 'Token 9e148e5b5ab42279939212ab77df3d582f2c2283'}
+    myobj= {'album_id': '1','review_content': 'Naujas, naujas, naujas','score': '5'}
+    r = requests.post(url, headers=headers, json=myobj)
+    print(r.json())
+    ```
   - **Get data:**
-      url = 'http://localhost:18080/albumreviews/'
-      headers = {'Authorization': 'Token 9e148e5b5ab42279939212ab77df3d582f2c2283'}
-      r = requests.get(url, headers=headers)
-      print(r.json())
-
+    ``` 
+    url = 'http://localhost:18080/albumreviews/'
+    headers = {'Authorization': 'Token 9e148e5b5ab42279939212ab77df3d582f2c2283'}
+    r = requests.get(url, headers=headers)
+    print(r.json())
+    ``` 
 
 **CREDITS**
    

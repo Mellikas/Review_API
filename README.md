@@ -60,7 +60,7 @@ The website was created to familiarize with:
     ```  
     url = 'http://localhost:18080/albumreviews/'
     headers = {'Authorization': 'Token 9e148e5b5ab42279939212ab77df3d582f2c2283'}
-    myobj= {'album_id': '1','review_content': 'Naujas, naujas, naujas','score': '5'}
+    myobj= {'album_id': '1','review_content': 'New, new, new','score': '5'}
     r = requests.post(url, headers=headers, json=myobj)
     print(r.json())
     ```
